@@ -1,0 +1,9 @@
+.container {
+    width: fit-content;
+    height: 40px;
+    background-color: blueviolet;
+    border: none;
+    cursor: pointer;
+    padding: 0 10px;
+    font-weight: 600;
+}

@@ -1,0 +1,34 @@
+.container {
+    width: 100%;
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 50px 0;
+}
+
+
+.companyLogos {
+    width: 60%;
+    display: grid;
+    align-items: center;
+    justify-items: space-between;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.logo {
+    width: 120px;
+    height: 45px;
+}
+
+@media only screen and (max-width:768px) {
+    .companyLogos {
+        width: 80%;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        place-items: center;
+        row-gap: 20px;
+    }
+}

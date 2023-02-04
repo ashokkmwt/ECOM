@@ -1,0 +1,11 @@
+.gridContainer {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex-wrap: wrap;
+    gap: 30px;
+    overflow-y: scroll;
+    margin-top: 20px;
+    /* background-color: red; */
+}

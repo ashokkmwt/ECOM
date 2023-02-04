@@ -1,0 +1,103 @@
+.homeContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 40px;
+    /* background-color: gray; */
+    gap: 100px;
+}
+
+.contactContainer {
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+    gap: 30px;
+}
+
+.contact {
+    font-size: 24px;
+}
+
+.contactSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contactContainer form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input,
+.textarea {
+    width: 30%;
+    height: 30px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    padding-left: 15px;
+    font-size: 16px;
+}
+
+.textarea {
+    height: 100px;
+    resize: none;
+}
+
+.sendBtn {
+    width: 30%;
+}
+
+.errorContainer {
+    width: 70%;
+    height: 50vh;
+    background-color: #121212;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 50px 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+.productsContainer {
+    width: 80%;
+    height: 90vh;
+    /* background-color: gray; */
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+@media only screen and (max-width:768px) {
+    .homeContainer {
+        padding-top: unset;
+    }
+
+    .input,
+    .textarea,
+    .sendBtn,
+    .contact {
+        width: 90%;
+    }
+
+    .contactSection {
+        flex-direction: column-reverse;
+    }
+}

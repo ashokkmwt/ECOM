@@ -1,0 +1,54 @@
+import React, { useState } from 'react'
+import { BsCaretDown, BsGrid } from 'react-icons/bs'
+import { TfiViewList } from 'react-icons/tfi'
+import { useFilterContext } from '../../context/filterContext'
+import styles from './SortSection.module.css'
+
+const SortSection = () => {
+    const { filter_products, gridView, setGridView, setListView, sortProduct } = useFilterContext();
+    const [popup, setPopup] = useState(false);
+    const [chosedOption, setChosedOption] = useState("");
+
+    const setOption = (e) => {
+        setChosedOption(e.target.innerHTML)
+        setPopup(false);
+        sortProduct(e.target.innerHTML);
+    }
+
+    return (
+        <div className={styles.container}>
+            <div className={styles.category}>
+                <BsGrid
+                    size={24}
+                    onClick={setGridView}
+                    style={{ fill: !gridView && "gray" }}
+                />
+                <TfiViewList
+                    size={21}
+                    onClick={setListView}
+                    style={{ fill: gridView && "gray" }}
+                />
+            </div>
+            <p>{filter_products.length} Products Available</p>
+            <div className={styles.form} >
+                <span>Price{chosedOption && <span>-{chosedOption}</span>}</span>
+                <BsCaretDown
+                    size={18}
+                    style={{
+                        cursor: "pointer",
+                        transform: popup && "rotate(180deg)"
+                    }}
+                    onClick={() => setPopup(!popup)}
+                />
+                {popup && <div className={styles.options}>
+                    <p onClick={setOption}>lowest</p>
+                    <p onClick={setOption}>highest</p>
+                    <p onClick={setOption}>a-z</p>
+                    <p onClick={setOption}>z-a</p>
+                </div>}
+            </div>
+        </div>
+    )
+}
+
+export default SortSection
