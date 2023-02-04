@@ -1,7 +1,7 @@
 const filterReducer = (state, action) => {
 
-    const { filter_products } = state;
-    // console.log("is it workign", filter_products);
+    const { filter_products, all_products } = state;
+    let tempFilterProducts = [...all_products];
 
     switch (action.type) {
         case "LOAD_FILTER_PRODUCTS":
@@ -47,16 +47,16 @@ const filterReducer = (state, action) => {
             }
 
         case "LOAD_FILTER_SEARCH":
-            const { all_products } = state;
-            let tempFilterProducts = [...all_products];
+
             const { text } = state.filters;
 
             // working but not updating filter_products.
-            if (text) {
-                tempFilterProducts = tempFilterProducts.filter(obj => {
+            tempFilterProducts = tempFilterProducts.filter(obj => {
+                if (text) {
                     return obj.name.toLowerCase().includes(text);
-                });
-            }
+                }
+                return obj
+            });
             return {
                 ...state,
                 filter_products: tempFilterProducts
@@ -74,6 +74,21 @@ const filterReducer = (state, action) => {
         //     }
         // }
         // return state
+
+        case "CATEGORY_FILTER":
+
+            tempFilterProducts = tempFilterProducts.filter((obj) => {
+
+                if (action.payload.category === "category" && action.payload.product !== "All") {
+                    return obj.category === action.payload.product;
+                }
+                if (action.payload.category === "company" && action.payload.product !== "All") {
+                    return obj.company === action.payload.product;
+                }
+                return obj
+            })
+
+            return { ...state, filter_products: tempFilterProducts }
 
         default:
             return state
