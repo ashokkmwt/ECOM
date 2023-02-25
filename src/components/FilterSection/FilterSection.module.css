@@ -1,7 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 5px;
     padding: 50px;
     border-right: 1px solid rgba(242, 242, 242, 0.3);
 }
@@ -13,4 +13,63 @@
     outline: none;
     padding-left: 10px;
     font-size: 18px;
+}
+
+.container p {
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid #f2f2f2;
+    position: relative;
+    text-transform: capitalize;
+}
+
+.options {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    padding: 5px;
+    border: 1px solid #f2f2f2;
+    z-index: 1;
+    background-color: rgba(18, 18, 18, 0.9);
+}
+
+.options p {
+    font-size: 16px;
+}
+
+.colors {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.colorBar {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: #292929;
+}
+
+.singleColor {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.clearBtn {
+    width: fit-content;
 }

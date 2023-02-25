@@ -1,0 +1,119 @@
+.error {
+    width: 100%;
+    height: 70vh;
+    display: grid;
+    place-items: center;
+    font-size: 28px;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 0;
+}
+
+.itemsChart {
+    width: 80%;
+    height: 10vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: #121212;
+}
+
+.container hr {
+    width: 80%;
+    opacity: 0.2;
+}
+
+.itemCol {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.btn {
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.buttonBar {
+    width: 80%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.totalCart {
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.total {
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    background-color: #121212;
+}
+
+.resChart {
+    width: 90%;
+    min-height: 10vh;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 1px;
+    column-gap: 1px;
+    z-index: 4;
+}
+
+.children {
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.image {
+    height: 100px;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+}
+
+.removebtn {
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 700;
+    color: red;
+}
+
+@media only screen and (max-width:770px) {
+    .itemsChart {
+        display: none;
+    }
+
+    .resChart {
+        display: grid;
+    }
+
+    .total {
+        align-items: end;
+    }
+}

@@ -1,0 +1,16 @@
+.cartAmountSection {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #121212;
+    padding: 5px 0;
+}
+
+.cartAmountSection button {
+    background: transparent;
+    border: 0;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}

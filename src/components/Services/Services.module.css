@@ -1,7 +1,5 @@
 .container {
     width: 70%;
-    /* height: 40vh; */
-    /* background-color: red; */
     display: flex;
     align-items: center;
     justify-content: space-evenly;

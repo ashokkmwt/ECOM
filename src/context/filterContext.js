@@ -9,7 +9,10 @@ const initialState = {
     all_products: [],
     gridView: true,
     filters: {
-        text: ""
+        text: "",
+        price: 0,
+        minPrice: 0,
+        maxPrice: 0
     }
 }
 
@@ -37,13 +40,24 @@ const FilterContextProvider = ({ children }) => {
         dispatch({ type: "SET_SEARCH_FILTER", payload: { name, value } })
     }
 
+    const categoryFilter = (data) => {
+        dispatch({ type: "CATEGORY_FILTER", payload: data })
+    }
+
+    const clearAllFilters = () => {
+        dispatch({ type: "CLEAR_FILTERS", payload: products })
+    }
+
     useEffect(() => {
         dispatch({ type: "LOAD_FILTER_SEARCH" });
+    }, [state.filters])
+
+    useEffect(() => {
         dispatch({ type: "LOAD_FILTER_PRODUCTS", payload: products });
-    }, [products, state.filters])
+    }, [products])
 
     return (
-        <filterContext.Provider value={{ ...state, setGridView, setListView, sortProduct, searchFilter }}>
+        <filterContext.Provider value={{ ...state, setGridView, setListView, sortProduct, searchFilter, categoryFilter, clearAllFilters }}>
             {children}
         </filterContext.Provider>
     )

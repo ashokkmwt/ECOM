@@ -1,6 +1,7 @@
 
 const ProductReducer = (state, action) => {
     switch (action.type) {
+
         case "SET_LOADING":
             return { ...state, isLoading: true };
 
@@ -20,7 +21,6 @@ const ProductReducer = (state, action) => {
                 isLoading: false
             };
 
-        // single product
         case "SET_SINGLE_LOADING":
             return { ...state, isSingleLoading: true };
 

@@ -7,25 +7,27 @@ import ParleG from '../../assets/parle-g.jpeg'
 import Samsung from '../../assets/samsung.jpeg'
 
 const Trusted = () => {
+
+    const logos = [
+        { logo: Lux, alternative: "Lux" },
+        { logo: Maggie, alternative: "Maggie" },
+        { logo: Oreo, alternative: "Oreo" },
+        { logo: ParleG, alternative: "ParleG" },
+        { logo: Samsung, alternative: "Samsung" }
+    ]
+
     return (
         <div className={styles.container}>
             <p>Trusted By 1000+ Companies</p>
             <div className={styles.companyLogos}>
-                <div className={styles.logo}>
-                    <img width="100%" height="100%" src={Lux} alt="Lux" />
-                </div>
-                <div className={styles.logo}>
-                    <img width="100%" height="100%" src={Maggie} alt="Maggie" />
-                </div>
-                <div className={styles.logo}>
-                    <img width="100%" height="100%" src={Oreo} alt="Oreo" />
-                </div>
-                <div className={styles.logo}>
-                    <img width="100%" height="100%" src={ParleG} alt="ParleG" />
-                </div>
-                <div className={styles.logo}>
-                    <img width="100%" height="100%" src={Samsung} alt="Samsung" />
-                </div>
+                {logos.map((element, index) => {
+                    return (
+                        <div key={index} className={styles.logo}>
+                            <img width="100%" height="100%" src={element.logo} alt={element.alternative} />
+                        </div>
+                    )
+                })}
+
             </div>
         </div>
     )
