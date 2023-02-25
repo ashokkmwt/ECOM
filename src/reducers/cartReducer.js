@@ -80,6 +80,9 @@ const cartReducer = (state, action) => {
             return { ...state, cart: newCart }
 
         case "CART_TOTAL":
+            if (state.cart === null) {
+                return
+            }
             const { total_items, total_price } = state.cart.reduce((initialValue, element) => {
                 let { amount, price } = element;
                 initialValue.total_items = initialValue.total_items + amount;

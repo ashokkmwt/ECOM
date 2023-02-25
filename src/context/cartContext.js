@@ -9,6 +9,10 @@ const getCartItem = () => {
 
     let cartItems = localStorage.getItem("setCartItem");
 
+    if (cartItems === null) {
+        return [];
+    }
+
     if (cartItems.length === 0) {
         return [];
     } else {
