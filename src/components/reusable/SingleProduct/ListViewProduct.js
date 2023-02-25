@@ -6,7 +6,6 @@ import Button from '../Button/Button'
 
 const ListViewProduct = ({ product }) => {
     const { id, image, name, price, description } = product;
-    // console.log("----", product);
     return (
         <div className={styles.listContainer}>
             <div className={styles.listImgSection}>

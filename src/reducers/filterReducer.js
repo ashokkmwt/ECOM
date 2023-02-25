@@ -1,14 +1,20 @@
 const filterReducer = (state, action) => {
 
     const { filter_products, all_products } = state;
+
     let tempFilterProducts = [...all_products];
 
     switch (action.type) {
         case "LOAD_FILTER_PRODUCTS":
+            const priceArray = action.payload.map(element => element.price)
+            let maxPrice = Math.max(...priceArray);
             return {
                 ...state,
-                filter_products: action.payload,
-                all_products: action.payload
+                filter_products: [...action.payload],
+                all_products: [...action.payload],
+                filters: {
+                    ...state.filters, maxPrice, price: maxPrice
+                }
             }
 
         case "SET_GRID":
@@ -48,32 +54,22 @@ const filterReducer = (state, action) => {
 
         case "LOAD_FILTER_SEARCH":
 
-            const { text } = state.filters;
+            const { text, price } = state.filters;
 
-            // working but not updating filter_products.
             tempFilterProducts = tempFilterProducts.filter(obj => {
                 if (text) {
                     return obj.name.toLowerCase().includes(text);
                 }
-                return obj
+                if (price) {
+                    return obj.price <= price;
+                }
+                return obj;
             });
+
             return {
                 ...state,
                 filter_products: tempFilterProducts
             }
-
-
-        // or I did this, but still not updating filter_products
-        // if (text) {
-        //     tempFilterProducts = tempFilterProducts.filter(obj => {
-        //         return obj.name.toLowerCase().includes(text);
-        //     })
-        //     return {
-        //         ...state,
-        //         filter_products: tempFilterProducts
-        //     }
-        // }
-        // return state
 
         case "CATEGORY_FILTER":
 
@@ -85,10 +81,25 @@ const filterReducer = (state, action) => {
                 if (action.payload.category === "company" && action.payload.product !== "All") {
                     return obj.company === action.payload.product;
                 }
+                if (action.payload.category === "colors" && action.payload.product !== "All") {
+                    return obj.colors.includes(action.payload.product);
+                }
+
                 return obj
             })
 
             return { ...state, filter_products: tempFilterProducts }
+
+        case "CLEAR_FILTERS":
+            return {
+                ...state,
+                filter_products: action.payload,
+                filters: {
+                    ...state.filters,
+                    text: "",
+                    price: state.filters.maxPrice
+                }
+            }
 
         default:
             return state

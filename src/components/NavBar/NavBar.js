@@ -3,8 +3,12 @@ import { NavLink } from 'react-router-dom';
 import styles from "./NavBar.module.css";
 import { FiShoppingCart } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useCartContex } from '../../context/cartContext';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const NavBar = () => {
+    const { total_items } = useCartContex();
+    const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
     return (
         <nav>
             <ul className={styles.navBar}>
@@ -23,12 +27,24 @@ const NavBar = () => {
                 <li>
                     <NavLink to="/cart" className={`${styles.navlink} ${styles.cart}`}>
                         <FiShoppingCart className={styles.navlink} />
-                        <p className={styles.cartItems}>10</p>
+                        <p className={styles.cartItems}>{total_items}</p>
                     </NavLink>
                 </li>
-                <li>
-                    <NavLink className={styles.navlink}>LogIn</NavLink>
-                </li>
+
+                {isAuthenticated && <li><p>{user.name}</p></li>}
+
+                {isAuthenticated ?
+                    <li>
+                        <button className={styles.loginBtn} onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                            Log Out
+                        </button>
+                    </li>
+                    :
+                    <li>
+                        <button className={styles.loginBtn} onClick={() => loginWithRedirect()}>Log In</button>
+                    </li>
+                }
+
             </ul>
             <ul className={styles.menuIcon}>
                 <GiHamburgerMenu size={25} />

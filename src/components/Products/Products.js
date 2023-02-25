@@ -6,7 +6,6 @@ import styles from './Products.module.css'
 
 const Products = () => {
     const { gridView, filter_products } = useFilterContext();
-    // console.log("1-1-1-1", filter_products);
     return (
         <div
             className={styles.gridContainer}

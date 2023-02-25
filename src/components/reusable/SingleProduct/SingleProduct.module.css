@@ -19,7 +19,6 @@
 
 .listContainer {
     width: 100%;
-    /* background-color: rebeccapurple; */
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -36,7 +35,6 @@
     flex-direction: column;
     gap: 10px;
     padding-left: 15px;
-    /* background-color: red; */
 }
 
 .price {

@@ -10,25 +10,27 @@ import Error from './pages/Error';
 import { ProductProvider } from './context/productContext';
 import { FilterContextProvider } from './context/filterContext';
 import ProductWithIdPage from './pages/ProductWithIdPage';
+import { CartContextProvider } from './context/cartContext';
 
 function App() {
   return (
     <ProductProvider>
       <FilterContextProvider>
-        <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/about' element={<AboutPage />} />
-            <Route path='/products' element={<ProductsPage />} />
-            <Route path='/contact' element={<ContactPage />} />
-            <Route path='/cart' element={<CartPage />} />
-            <Route path='*' element={<Error />} />
-            <Route path='/singleProduct/:id' element={<ProductWithIdPage />} />
-            {/* <Route path='/login' element={< />} /> */}
-          </Routes>
-          <Footer />
-        </BrowserRouter>
+        <CartContextProvider>
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route path='/' element={<HomePage />} />
+              <Route path='/about' element={<AboutPage />} />
+              <Route path='/products' element={<ProductsPage />} />
+              <Route path='/contact' element={<ContactPage />} />
+              <Route path='/cart' element={<CartPage />} />
+              <Route path='*' element={<Error />} />
+              <Route path='/singleProduct/:id' element={<ProductWithIdPage />} />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+        </CartContextProvider>
       </FilterContextProvider>
     </ProductProvider>
   );

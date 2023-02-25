@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
-import { MdSecurity } from 'react-icons/md';
-import { TbReplace, TbTruckDelivery } from 'react-icons/tb';
 import { NavLink } from 'react-router-dom';
+import { useProductContext } from '../../context/productContext';
 import { NumberFormat } from '../../utils/NumberFormat';
 import AddToCartSection from '../AddToCartSection/AddToCartSection';
 import StarRating from '../StarRating/StarRating';
+import ProductDelivery from './ProductDelivery';
 import styles from './ProductWithId.module.css'
 
-const ProductWithId = ({ singleProduct, isSingleLoading }) => {
+const ProductWithId = () => {
 
-    const { id, name, category, company, description, image, price, reviews, stars, stock, colors } = singleProduct;
-    // console.log("----", singleProduct);
+    const { singleProduct, isSingleLoading } = useProductContext();
+
+    const { id, name, company, description, image, price, reviews, stars, stock, colors } = singleProduct;
 
     const [currentImage, setCurrentImage] = useState(0);
 
@@ -50,39 +51,16 @@ const ProductWithId = ({ singleProduct, isSingleLoading }) => {
                     <p>MRP: <span className={styles.delete}><NumberFormat price={price} /></span></p>
                     <p className={styles.deal}>Deal of the Day: <NumberFormat price={price * 9 / 10} /></p>
                     <p className={styles.description}>{description}</p>
-                    <div className={styles.productDelivery}>
-                        <div className={styles.iconsBox}>
-                            <div className={styles.icons}>
-                                <TbTruckDelivery size={25} />
-                            </div>
-                            <p>Free Delivery</p>
-                        </div>
-                        <div className={styles.iconsBox}>
-                            <div className={styles.icons}>
-                                <TbReplace size={25} />
-                            </div>
-                            <p>30 Days Replacement</p>
-                        </div>
-                        <div className={styles.iconsBox}>
-                            <div className={styles.icons}>
-                                <TbTruckDelivery size={25} />
-                            </div>
-                            <p>Ak Delivered</p>
-                        </div>
-                        <div className={styles.iconsBox}>
-                            <div className={styles.icons}>
-                                <MdSecurity size={25} />
-                            </div>
-                            <p>Warranty</p>
-                        </div>
-                    </div>
+
+                    <ProductDelivery />
+
                     <p>Available:
                         <span>{stock > 0 ? " In Stock" : "Not Available"}</span>
                     </p>
                     <p>ID: <span>{id}</span></p>
                     <p>Brand: <span>{company}</span></p>
                     <hr />
-                    <AddToCartSection colors={colors} stock={stock} />
+                    <AddToCartSection singleProduct={singleProduct} id={id} colors={colors} stock={stock} />
                 </section >
             </div >
         </div >
