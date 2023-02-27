@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Category = ({ productCategories, categoryFilter, setCurrentComp }) => {
+const Category = ({ productCategories, categoryFilter, setCurrentComp, setFilterPopup }) => {
     return (
         <>
             <h3>Category</h3>
@@ -10,6 +10,7 @@ const Category = ({ productCategories, categoryFilter, setCurrentComp }) => {
                     <p key={i} onClick={() => {
                         categoryFilter(data);
                         setCurrentComp("All");
+                        setFilterPopup(false);
                     }}>{p}</p>
                 )
             })}

@@ -9,7 +9,7 @@ const Products = () => {
     return (
         <div
             className={styles.gridContainer}
-            style={{ display: gridView ? 'grid' : 'unset' }}
+            style={{ display: gridView ? 'flex' : 'unset' }}
         >
             {filter_products.map((product, index) => {
                 if (gridView) {
