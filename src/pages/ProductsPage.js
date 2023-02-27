@@ -7,7 +7,7 @@ import styles from './Page.module.css'
 
 const ProductsPage = () => {
     const { width } = useWindowSize();
-    const [filterPopup, setFilterPopup] = useState(true)
+    const [filterPopup, setFilterPopup] = useState(false);
     return (
         <div style={{ display: 'flex' }}>
             {(width >= 768 || filterPopup) &&
