@@ -6,7 +6,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useCartContex } from '../../context/cartContext';
 import { useAuth0 } from '@auth0/auth0-react';
 
-const NavBar = () => {
+const NavBar = ({ setPopup }) => {
     const { total_items } = useCartContex();
     const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
     return (
@@ -46,7 +46,10 @@ const NavBar = () => {
                 }
 
             </ul>
-            <ul className={styles.menuIcon}>
+            <ul
+                className={styles.menuIcon}
+                onClick={() => setPopup(true)}
+            >
                 <GiHamburgerMenu size={25} />
             </ul>
         </nav>

@@ -2,7 +2,7 @@ import React from 'react'
 import { BsCheck } from 'react-icons/bs';
 import styles from './FilterSection.module.css';
 
-const Colors = ({ productColors, curClr, categoryFilter, setCurClr }) => {
+const Colors = ({ productColors, curClr, categoryFilter, setCurClr, setFilterPopup }) => {
     return (
         <div className={styles.colors}>
             <h3>Colors</h3>
@@ -18,6 +18,7 @@ const Colors = ({ productColors, curClr, categoryFilter, setCurClr }) => {
                             onClick={() => {
                                 categoryFilter(data);
                                 setCurClr(color);
+                                setFilterPopup(false);
                             }}
                         >
                             {color === "All" && color}

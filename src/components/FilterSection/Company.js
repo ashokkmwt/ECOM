@@ -2,7 +2,7 @@ import React from 'react'
 import { BsCaretDown } from 'react-icons/bs'
 import styles from './FilterSection.module.css';
 
-const Company = ({ currentComp, popup, setPopup, productCompany, categoryFilter, setCurrentComp }) => {
+const Company = ({ currentComp, popup, setPopup, productCompany, categoryFilter, setCurrentComp, setFilterPopup }) => {
     return (
         <>
             <h3>Company</h3>
@@ -25,6 +25,7 @@ const Company = ({ currentComp, popup, setPopup, productCompany, categoryFilter,
                                     categoryFilter(data);
                                     setPopup(false);
                                     setCurrentComp(p);
+                                    setFilterPopup(false);
                                 }}>{p}</p>
                             )
                         })}

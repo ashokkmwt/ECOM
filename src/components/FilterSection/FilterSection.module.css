@@ -35,18 +35,7 @@
     width: 150px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    position: absolute;
-    top: 35px;
-    left: 0;
-    padding: 5px;
-    border: 1px solid #f2f2f2;
-    z-index: 1;
-    background-color: rgba(18, 18, 18, 0.9);
-}
-
-.options p {
-    font-size: 16px;
+    gap: 8px;
 }
 
 .colors {
@@ -72,4 +61,34 @@
 
 .clearBtn {
     width: fit-content;
+}
+
+.closeBtn {
+    display: none;
+}
+
+@media only screen and (max-width:768px) {
+    .container {
+        width: 100%;
+        min-height: 100%;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #000000;
+    }
+
+    .filterWithSearch {
+        display: none;
+    }
+
+    .closeBtn {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-weight: 700;
+        font-size: 20px;
+        cursor: pointer;
+    }
 }
