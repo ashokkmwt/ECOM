@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useWindowSize } from 'react-use';
 import { useFilterContext } from '../../context/filterContext';
 import { NumberFormat } from '../../utils/NumberFormat';
 import Button from '../reusable/Button/Button';
@@ -8,6 +9,8 @@ import Company from './Company';
 import styles from './FilterSection.module.css';
 
 const FilterSection = ({ filterPopup, setFilterPopup }) => {
+
+    const { width } = useWindowSize();
 
     const [popup, setPopup] = useState(false);
 
@@ -77,14 +80,18 @@ const FilterSection = ({ filterPopup, setFilterPopup }) => {
                 />
             </form>
 
-            <div className={styles.options}>
-                <h3 className={styles.heading}>Price</h3>
-                <p onClick={setOption}>lowest</p>
-                <p onClick={setOption}>highest</p>
-                <p onClick={setOption}>a-z</p>
-                <p onClick={setOption}>z-a</p>
-            </div>
-            <hr />
+            {width < 768 &&
+                <>
+                    <div className={styles.options}>
+                        <h3 className={styles.heading}>Price</h3>
+                        <p onClick={setOption}>lowest</p>
+                        <p onClick={setOption}>highest</p>
+                        <p onClick={setOption}>a-z</p>
+                        <p onClick={setOption}>z-a</p>
+                    </div>
+                    <hr />
+                </>
+            }
 
             <Category {...categoryProps} />
             <hr />
