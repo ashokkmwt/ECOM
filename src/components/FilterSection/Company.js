@@ -7,17 +7,18 @@ const Company = ({ currentComp, popup, setPopup, productCompany, categoryFilter,
         <>
             <h3>Company</h3>
             <div className={styles.form} >
-                <span>{currentComp}</span>
-                <BsCaretDown
-                    size={18}
-                    style={{
-                        cursor: "pointer",
-                        transform: popup && "rotate(180deg)"
-                    }}
-                    onClick={() => setPopup(!popup)}
-                />
+                <div className={styles.flexRow} onClick={() => setPopup(!popup)}>
+                    <span>{currentComp}</span>
+                    <BsCaretDown
+                        size={18}
+                        style={{
+                            cursor: "pointer",
+                            transform: popup && "rotate(180deg)"
+                        }}
+                    />
+                </div>
                 {popup &&
-                    <div className={styles.options}>
+                    <div className={`${styles.options} ${styles.companyContainer}`}>
                         {productCompany.map((p, i) => {
                             const data = { product: p, category: "company" }
                             return (
