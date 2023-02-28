@@ -6,8 +6,8 @@ import SortSection from '../components/SortSection/SortSection'
 import styles from './Page.module.css'
 
 const ProductsPage = () => {
-    const { width } = useWindowSize();
     const [filterPopup, setFilterPopup] = useState(false);
+    const { width } = useWindowSize();
     return (
         <div style={{ display: 'flex' }}>
             {(width >= 768 || filterPopup) &&

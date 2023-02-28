@@ -22,6 +22,14 @@ const FilterContextProvider = ({ children }) => {
 
     const { products } = useProductContext();
 
+    useEffect(() => {
+        dispatch({ type: "LOAD_FILTER_SEARCH" });
+    }, [state.filters])
+
+    useEffect(() => {
+        dispatch({ type: "LOAD_FILTER_PRODUCTS", payload: products });
+    }, [products])
+
     const setGridView = () => {
         dispatch({ type: "SET_GRID" })
     }
@@ -47,14 +55,6 @@ const FilterContextProvider = ({ children }) => {
     const clearAllFilters = () => {
         dispatch({ type: "CLEAR_FILTERS", payload: products })
     }
-
-    useEffect(() => {
-        dispatch({ type: "LOAD_FILTER_SEARCH" });
-    }, [state.filters])
-
-    useEffect(() => {
-        dispatch({ type: "LOAD_FILTER_PRODUCTS", payload: products });
-    }, [products])
 
     return (
         <filterContext.Provider value={{ ...state, setGridView, setListView, sortProduct, searchFilter, categoryFilter, clearAllFilters }}>

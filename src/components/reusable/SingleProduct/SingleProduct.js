@@ -6,9 +6,9 @@ import styles from './SingleProduct.module.css'
 
 const SingleProduct = ({ product }) => {
 
-    const { id, image, name, price } = product;
-
     const { getSingleProduct } = useProductContext();
+
+    const { id, image, name, price } = product;
 
     return (
         <NavLink to={`/singleProduct/${id}`} className={styles.container} onClick={() => getSingleProduct(id)}>

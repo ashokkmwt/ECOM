@@ -8,9 +8,9 @@ import CartAmount from '../reusable/CartAmount/CartAmount';
 
 const AddToCartSection = ({ singleProduct, id, colors, stock }) => {
 
-    const { goToCart } = useCartContex();
     const [color, setColor] = useState(colors?.[0]);
     const [amount, setAmount] = useState(1);
+    const { goToCart } = useCartContex();
 
     return (
         <div className={styles.container}>

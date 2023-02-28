@@ -1,5 +1,5 @@
-import { useAuth0 } from '@auth0/auth0-react';
 import React, { useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { NavLink } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 import styles from './Header.module.css';
@@ -26,6 +26,9 @@ const Header = () => {
                     </NavLink>
                     <NavLink to="/contact">
                         <p onClick={() => setPopup(false)}>Contact</p>
+                    </NavLink>
+                    <NavLink to={"/cart"}>
+                        <p onClick={() => setPopup(false)}>Cart</p>
                     </NavLink>
                     {isAuthenticated ?
                         <>

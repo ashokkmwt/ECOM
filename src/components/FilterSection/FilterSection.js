@@ -9,6 +9,10 @@ import styles from './FilterSection.module.css';
 
 const FilterSection = ({ filterPopup, setFilterPopup }) => {
 
+    const [popup, setPopup] = useState(false);
+
+    const [currentComp, setCurrentComp] = useState("All");
+
     const {
         all_products,
         filters: { text, price, minPrice, maxPrice },
@@ -17,10 +21,6 @@ const FilterSection = ({ filterPopup, setFilterPopup }) => {
         clearAllFilters,
         sortProduct
     } = useFilterContext();
-
-    const [popup, setPopup] = useState(false);
-
-    const [currentComp, setCurrentComp] = useState("All");
 
     const getCategories = (array, category) => {
         let catArray = array.map(el => {
@@ -77,7 +77,6 @@ const FilterSection = ({ filterPopup, setFilterPopup }) => {
                 />
             </form>
 
-            {/* working here */}
             <div className={styles.options}>
                 <h3 className={styles.heading}>Price</h3>
                 <p onClick={setOption}>lowest</p>

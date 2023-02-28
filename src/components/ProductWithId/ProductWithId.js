@@ -9,11 +9,11 @@ import styles from './ProductWithId.module.css'
 
 const ProductWithId = () => {
 
+    const [currentImage, setCurrentImage] = useState(0);
+
     const { singleProduct, isSingleLoading } = useProductContext();
 
     const { id, name, company, description, image, price, reviews, stars, stock, colors } = singleProduct;
-
-    const [currentImage, setCurrentImage] = useState(0);
 
     if (isSingleLoading) {
         return <h1 className={styles.loading}>Loading...</h1>
