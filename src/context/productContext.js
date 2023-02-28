@@ -29,6 +29,10 @@ const ProductProvider = ({ children }) => {
         }).catch(dispatch({ type: "SET_ERROR" }))
     }
 
+    useEffect(() => {
+        getProducts();
+    }, [])
+
     const getSingleProduct = (id) => {
         dispatch({ type: "SET_SINGLE_LOADING" });
         axios({
@@ -39,11 +43,6 @@ const ProductProvider = ({ children }) => {
             dispatch({ type: "SET_SINGLE_PRODUCT", payload: singleProduct });
         }).catch(dispatch({ type: "SET_SINGLE_ERROR" }))
     }
-
-    useEffect(() => {
-        getProducts();
-    }, [])
-
 
     return (
         <productContext.Provider value={{ ...state, getSingleProduct }}>

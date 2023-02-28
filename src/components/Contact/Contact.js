@@ -7,6 +7,7 @@ import Button from '../reusable/Button/Button';
 const Contact = () => {
 
     const { width } = useWindowSize();
+
     const { user, isAuthenticated } = useAuth0();
 
     return (
@@ -46,7 +47,9 @@ const Contact = () => {
                     <textarea
                         className={styles.textarea}
                         placeholder='Type your message'
-                        name="message">
+                        name="message"
+                        readOnly={!isAuthenticated ? "readOnly" : null}
+                    >
                     </textarea>
                     <div className={styles.sendBtn}>
                         <Button>SEND</Button>

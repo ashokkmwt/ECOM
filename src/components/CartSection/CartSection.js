@@ -6,6 +6,7 @@ import { NumberFormat } from '../../utils/NumberFormat';
 import { TbMinus } from 'react-icons/tb';
 import { BiPlus } from 'react-icons/bi';
 import CartItems from '../CartItems/CartItems';
+import { NavLink } from 'react-router-dom';
 
 const CartSection = () => {
 
@@ -61,9 +62,9 @@ const CartSection = () => {
             <hr />
 
             <div className={styles.buttonBar}>
-                <div>
+                <NavLink to={"/products"}>
                     <Button>CONTINUE SHOPPING</Button>
-                </div>
+                </NavLink>
                 <div onClick={clearCart}>
                     <Button>CLEAR CART</Button>
                 </div>

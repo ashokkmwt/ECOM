@@ -7,11 +7,11 @@ import styles from './SortSection.module.css'
 
 const SortSection = ({ filterPopup, setFilterPopup }) => {
 
-    const { filter_products, gridView, setGridView, setListView, sortProduct } = useFilterContext();
-
     const [popup, setPopup] = useState(false);
 
     const [chosedOption, setChosedOption] = useState("");
+
+    const { filter_products, gridView, setGridView, setListView, sortProduct } = useFilterContext();
 
     const { width } = useWindowSize();
 
@@ -20,7 +20,6 @@ const SortSection = ({ filterPopup, setFilterPopup }) => {
         sortProduct(e.target.innerHTML);
     }
 
-    // working on this function.
     const showPopup = () => {
         if (width >= 768) {
             setPopup(!popup);

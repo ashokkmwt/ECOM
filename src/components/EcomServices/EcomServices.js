@@ -1,11 +1,11 @@
 import React from 'react'
-import styles from './Services.module.css'
+import styles from './EcomServices.module.css'
 import { TbTruckDelivery } from 'react-icons/tb'
 import { MdSecurity } from 'react-icons/md'
 import { GiReceiveMoney } from 'react-icons/gi'
 import { RiSecurePaymentLine } from 'react-icons/ri'
 
-const Services = () => {
+const EcomServices = () => {
     return (
         <div className={styles.container}>
             <div className={styles.item1}>
@@ -38,4 +38,4 @@ const Services = () => {
     )
 }
 
-export default Services
+export default EcomServices
